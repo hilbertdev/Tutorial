@@ -15,12 +15,32 @@
     1. git add . 
     2. git commit -m 'insert comment'
 
-    How to add a branch:
-    git branch 'branch name'
+    When you switch back to the master file coming from the a branch, the file in the branch is deleted 
 
-    To switch branches: 
-    git checkout 'name of branch'
-    
+    Merge the two branches to be able to view both of them
+
+    Problem: Could not push my local repo to my remote repo 
+    error: Unrelated histories error 
+    solution: git pull origin master --allow-unrelated-histories 
+
+    Why unrelated histories?
+As clear from the error message, it happens when some one try to merge two unrelated projects (projects which do not know about each other and commit history in one project does not match with other project.). Until now I am aware of two scenarios when this error can occur.
+
+You have cloned a project and some how you have lost your .git directory or somehow .git got corrupted. You local history is gone and git is not happy with it.
+OR
+
+You have create a brand new repository, added few commits and now you are trying to pull from some remote repository which already has some commits.
+Unrelated histories can be fixed in two ways.
+
+allow-unrelated-histories switch
+You can simple use allow-unrelated-histories with pull. This will merge remote history first followed by your commit.
+
+git pull origin master --allow-unrelated-histories
+
+
+Problem: How to resolve git error: “Updates were rejected because the tip of your current branch is behind”
+Solution: Pull the master branch on your remote server first to ensure it merge with the local branch. 
+
 
 
 </body>
